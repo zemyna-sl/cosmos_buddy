@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0"
+	>
+
+	<title>Cosmos Buddy</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+
+	<link
+		rel="preconnect"
+		href="https://fonts.gstatic.com"
+		crossorigin
+	>
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@400;500;600&display=swap"
+		rel="stylesheet"
+	>
+
+	<link
+		rel="stylesheet"
+		href="styles.css"
+	>
+        
+</head>
+
+<body>
+
+	<div class="starfield" aria-hidden="true">
+		<span class="star star-1"></span>
+		<span class="star star-2"></span>
+		<span class="star star-3"></span>
+		<span class="star star-4"></span>
+		<span class="star star-5"></span>
+		<span class="star star-6"></span>
+		<span class="star star-7"></span>
+		<span class="star star-8"></span>
+		<span class="star star-9"></span>
+		<span class="star star-10"></span>
+		<span class="star star-11"></span>
+		<span class="star star-12"></span>
+		<span class="star star-13"></span>
+		<span class="star star-14"></span>
+		<span class="star star-15"></span>
+		<span class="star star-16"></span>
+		<span class="star star-17"></span>
+	</div>
+
+	<main class="cosmos-app">
+
+		<h1 class="visually-hidden">
+			Cosmos Buddy
+		</h1>
+
+
+		<header class="buddy-header">
+
+			<div
+				class="cosmos-buddy"
+				role="img"
+				aria-label="Cosmos Buddy"
+			>
+
+				<div class="buddy-antenna buddy-antenna-left"></div>
+				<div class="buddy-antenna buddy-antenna-right"></div>
+
+				<div class="buddy-body">
+				</div>
+
+			</div>
+
+		</header>
+
+
+		<nav
+			class="feature-navigation"
+			aria-label="Cosmos Buddy features"
+		>
+
+			<button
+				class="feature-button"
+				type="button"
+				data-feature="chat"
+				aria-controls="chat-panel"
+				aria-expanded="false"
+			>
+				Cosmos AI
+			</button>
+
+			<button
+				class="feature-button"
+				type="button"
+				data-feature="image"
+				aria-controls="image-panel"
+				aria-expanded="false"
+			>
+				Get NASA Image
+			</button>
+
+			<button
+				class="feature-button"
+				type="button"
+				data-feature="fact"
+				aria-controls="fact-panel"
+				aria-expanded="false"
+			>
+				Random Space Fact
+			</button>
+
+		</nav>
+
+
+		<div class="feature-stage">
+
+
+			<section
+				class="feature-panel chat-panel"
+				id="chat-panel"
+				aria-labelledby="chat-heading"
+				hidden
+			>
+
+				<h2
+					class="visually-hidden"
+					id="chat-heading"
+				>
+					Chat with Cosmos Buddy
+				</h2>
+
+
+				<div
+					class="chat-messages"
+					aria-live="polite"
+				>
+
+					<div class="message buddy-message">
+						<p>
+							Hi! I'm Cosmos. Ask me anything about space.
+						</p>
+					</div>
+
+				</div>
+
+
+				<form class="chat-form">
+
+					<label
+						class="visually-hidden"
+						for="chat-input"
+					>
+						Ask Cosmos Buddy a question
+					</label>
+
+					<div class="chat-input-wrap">
+
+						<textarea
+							id="chat-input"
+							name="message"
+							rows="1"
+							maxlength="500"
+							placeholder="Ask me anything about space..."
+							autocomplete="off"
+						></textarea>
+
+						<div
+							class="chat-input-mirror"
+							aria-hidden="true"
+						>
+							<span class="chat-input-mirror-text"></span>
+						</div>
+					
+					</div>
+
+					<button type="submit">
+						Send
+					</button>
+
+				</form>
+
+			</section>
+
+
+			<section
+				class="feature-panel nasa-image-panel"
+				id="image-panel"
+				aria-labelledby="image-heading"
+				hidden
+			>
+
+				<h2 id="image-heading">
+					NASA Image
+				</h2>
+
+				<div 
+					class="nasa-image-placeholder"
+					id="nasa-image-display"
+				>
+					<span class="nasa-image-placeholder-text">
+						NASA image will appear here
+					</span>
+				</div>
+
+				<div class="nasa-image-info">
+
+					<h3 id="nasa-image-title">
+						Image title
+					</h3>
+
+					<p id="nasa-image-explanation">
+						Image information from NASA will appear here.
+					</p>
+
+				</div>
+
+				<button 
+					type="button"
+					id="nasa-image-button"
+				>
+					Get another image
+				</button>
+
+			</section>
+
+
+			<section
+				class="feature-panel nasa-fact-panel"
+				id="fact-panel"
+				aria-labelledby="fact-heading"
+				hidden
+			>
+
+				<h2 id="fact-heading">
+					Random Space Fact
+				</h2>
+
+				<blockquote id="space-fact-text">
+					An interesting space fact will appear here.
+				</blockquote>
+
+				<p class="space-fact-source">
+					<a
+						id="space-fact-source"
+						href="#"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Source: NASA
+					</a>
+				</p>
+
+				<button 
+					type="button"
+					id="space-fact-button"
+				>
+					Get another fact
+				</button>
+
+			</section>
+
+
+		</div>
+
+		<p class="site-copyright">
+  		© 2026 Žemyna Šliauterytė. All rights reserved.
+		</p>
+
+	</main>
+
+	<script src="script.js"></script>
+
+</body>
+
+</html>
