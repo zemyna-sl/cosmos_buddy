@@ -178,7 +178,7 @@ chatForm.addEventListener("submit", async (event) => {
   try {
 
     const response = await fetch(
-      "http://127.0.0.1:8000/api/chat",
+      "https://cosmos-buddy-api.onrender.com/api/chat",
       {
         method: "POST",
 
@@ -304,7 +304,7 @@ async function loadNasaImage() {
   nasaImageExplanation.textContent = "Loading image information from NASA...";
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/api/nasa-image");
+    const response = await fetch("https://cosmos-buddy-api.onrender.com/api/nasa-image");
 
     if (!response.ok) {
       throw new Error("Failed to load NASA image.");
@@ -351,7 +351,7 @@ async function loadRandomFact() {
 
   try {
     const response = await fetch(
-      "http://127.0.0.1:8000/api/random-fact"
+      "https://cosmos-buddy-api.onrender.com/api/random-fact"
     );
 
     if (!response.ok) {
