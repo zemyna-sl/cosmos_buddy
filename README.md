@@ -4,6 +4,10 @@ An interactive space-themed web application built with JavaScript and FastAPI, c
 
 The project brings together frontend development, backend API design, external API integration, request validation, conversational context, and lightweight usage safeguards in a single application.
 
+## Live Demo
+
+[View Cosmos Buddy](https://zemyna-sl.github.io/cosmos_buddy/)
+
 ## Project Overview
 
 Cosmos Buddy is designed as a small interactive space companion rather than a general-purpose chatbot.
@@ -15,6 +19,8 @@ The application includes three main features:
 - **Random Space Fact** — displays curated NASA-sourced facts from a local JSON dataset
 
 The frontend is built with HTML, CSS, and JavaScript, while a Python FastAPI backend handles external API requests, chat validation, conversation context, and API-key protection.
+
+The frontend is deployed through GitHub Pages, while the FastAPI backend is hosted on Render.
 
 ## Features
 
@@ -62,6 +68,8 @@ The current dataset uses NASA material as its source.
 - **CSS** — interface design and animation
 - **JavaScript** — frontend interactions, API requests, and session conversation history
 - **Uvicorn** — ASGI server for the FastAPI backend
+- **GitHub Pages** — frontend deployment
+- **Render** — backend deployment
 
 ## API Endpoints
 
@@ -84,7 +92,7 @@ The chat endpoint includes several lightweight safeguards intended for a public 
 
 The application-level daily counter is stored in memory and therefore resets if the backend process restarts. Gemini's own API quota remains the external quota limit.
 
-API keys are stored in a local `.env` file and are not exposed to the frontend.
+API keys are stored as environment variables and are never exposed to the frontend. Local development uses a `.env` file, while deployed secrets are configured through the backend hosting environment.
 
 ## Project Structure
 
@@ -94,6 +102,7 @@ cosmos_buddy/
 │   ├── data/
 │   │   └── space_facts.json
 │   └── main.py
+├── favicon.svg
 ├── index.html
 ├── script.js
 ├── styles.css
@@ -104,6 +113,7 @@ cosmos_buddy/
 
 - **`backend/main.py`** — FastAPI backend, external API requests, validation, and chat safeguards
 - **`backend/data/space_facts.json`** — curated space-fact dataset
+- **`favicon.svg`** — Cosmos Buddy browser icon
 - **`index.html`** — application structure
 - **`script.js`** — frontend interactions and API communication
 - **`styles.css`** — application styling and animations
@@ -118,7 +128,8 @@ cosmos_buddy/
 - Gemini availability remains subject to the API provider's own quota and rate limits
 - NASA image availability depends on successful responses from the external NASA API
 - the interface is designed for desktop use and is not optimized for mobile devices
+- the Render free-tier backend may take longer to respond to the first request after a period of inactivity
 
 ---
 
-This project was prepared as a portfolio project demonstrating **frontend development, Python backend development with FastAPI, API integration, request validation, conversational AI, state handling, and practical API safeguards**.
+This project was prepared as a portfolio project demonstrating **frontend development, Python backend development with FastAPI, API integration, request validation, conversational AI, state handling, deployment, and practical API safeguards**.

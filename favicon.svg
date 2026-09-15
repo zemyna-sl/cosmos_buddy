@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 262 202" role="img" aria-label="Cosmos Buddy">
+  <!-- dark site-matching background -->
+  <rect width="262" height="202" fill="#05040B"/>
+
+  <!-- antenna stems -->
+  <line x1="103" y1="77" x2="89" y2="32"
+        stroke="#D96B9B" stroke-width="4" stroke-linecap="round"/>
+  <line x1="159" y1="77" x2="173" y2="32"
+        stroke="#D96B9B" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- antenna tips -->
+  <circle cx="89" cy="32" r="7" fill="#E06FA2"/>
+  <circle cx="173" cy="32" r="7" fill="#E06FA2"/>
+
+  <!-- rounded Cosmos Buddy head -->
+  <ellipse cx="131" cy="109" rx="74" ry="55"
+           fill="#D96B9B"/>
+
+  <!-- eyes -->
+  <ellipse cx="104" cy="106" rx="8" ry="13"
+           fill="#090C13"/>
+  <ellipse cx="159" cy="106" rx="8" ry="13"
+           fill="#090C13"/>
+</svg>
