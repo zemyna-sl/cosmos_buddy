@@ -114,15 +114,14 @@ def get_nasa_image():
             days=random.randint(0, (today - start_date).days)
         )
 
-        response = httpx.get(
-            "https://science.nasa.gov/wp-json/wp/v2/apod-basic/",
-            params={
-                "api_key": nasa_api_key,
-                "date": random_date.isoformat()
-            }
-        )
+        nasa_date = random_date.strftime("%y%m%d")
 
-        response.raise_for_status()
+        response = httpx.get(
+            f"https://science.nasa.gov/wp-json/wp/v2/apod-basic/{nasa_date}"
+            )
+
+        if response.status_code != 200:
+            continue
 
         data = response.json()
 
