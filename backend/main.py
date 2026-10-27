@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from google import genai
 from google.genai import types
 from pydantic import BaseModel, Field
-from datetime import datetime
+from datetime import datetime, timedelta
 from threading import Lock
 from zoneinfo import ZoneInfo
 
@@ -106,17 +106,25 @@ def health():
 def get_nasa_image():
 
     for attempt in range(10):
+
+        start_date = datetime(1995, 6, 16).date()
+        today = datetime.now(PACIFIC_TIME).date()
+
+        random_date = start_date + timedelta(
+            days=random.randint(0, (today - start_date).days)
+        )
+
         response = httpx.get(
             "https://science.nasa.gov/wp-json/wp/v2/apod-basic/",
             params={
                 "api_key": nasa_api_key,
-                "count": 1
+                "date": random_date.isoformat()
             }
         )
 
         response.raise_for_status()
 
-        data = response.json()[0]
+        data = response.json()
 
         if data["media_type"] == "image" and data.get("hdurl"):
 
