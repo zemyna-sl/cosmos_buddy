@@ -106,7 +106,7 @@ def get_nasa_image():
 
     for attempt in range(10):
         response = httpx.get(
-            "https://api.nasa.gov/planetary/apod",
+            "https://science.nasa.gov/wp-json/wp/v2/apod-basic",
             params={
                 "api_key": nasa_api_key,
                 "count": 1
@@ -117,11 +117,11 @@ def get_nasa_image():
 
         data = response.json()[0]
 
-        if data["media_type"] == "image":
+        if data["media_type"] == "image" and data.get("hdurl"):
             return {
                 "title": data["title"],
                 "explanation": data["explanation"],
-                "image_url": data["url"],
+                "image_url": data["hdurl"],
                 "date": data["date"],
                 "media_type": data["media_type"]
             }
