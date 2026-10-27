@@ -2,6 +2,7 @@ import os
 import httpx
 import json
 import random
+import re
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -106,7 +107,7 @@ def get_nasa_image():
 
     for attempt in range(10):
         response = httpx.get(
-            "https://science.nasa.gov/wp-json/wp/v2/apod-basic",
+            "https://science.nasa.gov/wp-json/wp/v2/apod-basic/",
             params={
                 "api_key": nasa_api_key,
                 "count": 1
@@ -118,9 +119,12 @@ def get_nasa_image():
         data = response.json()[0]
 
         if data["media_type"] == "image" and data.get("hdurl"):
+
+            explanation = re.sub(r"<[^>]+>", "", data["explanation"])
+
             return {
                 "title": data["title"],
-                "explanation": data["explanation"],
+                "explanation": explanation,
                 "image_url": data["hdurl"],
                 "date": data["date"],
                 "media_type": data["media_type"]
